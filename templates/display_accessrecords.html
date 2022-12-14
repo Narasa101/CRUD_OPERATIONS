@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessRecords</title>
+</head>
+<body>
+    <center>
+        <h1>CRUD operations on AccessRecords_table</h1>
+        <table border="3px">
+            <tr>
+                <th>name</th>
+                <th>date</th>
+            </tr>
+            {% for i in LAO %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.date}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

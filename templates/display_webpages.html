@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpage</title>
+</head>
+<body>
+    <center>
+        <h1>CRUD operations on Webpages_table</h1>
+        <table border="3px">
+            <tr>
+                <th>topic_name</th>
+                <th>name</th>
+                <th>url</th>
+            </tr>
+            {% for i in LWO %}
+                <tr>
+                    <td>{{i.topic_name}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.url}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
