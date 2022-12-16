@@ -11,11 +11,13 @@
         <h1>CRUD operations on AccessRecords_table</h1>
         <table border="3px">
             <tr>
+                <th>id</th>
                 <th>name</th>
                 <th>date</th>
             </tr>
             {% for i in LAO %}
                 <tr>
+                    <td>{{i.id}}</td>
                     <td>{{i.name}}</td>
                     <td>{{i.date}}</td>
                 </tr>
