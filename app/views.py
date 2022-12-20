@@ -45,7 +45,7 @@ def display_webpages(request):
     LWO=Webpage.objects.filter(Q(name__contains='y') & Q(name__contains='k'))
     LWO=Webpage.objects.filter(Q(name__contains='y') | Q(name__contains='k'))
     
-
+    LWO=Webpage.objects.all()
     d={'LWO':LWO}
     return render(request,'display_webpages.html',d)
 
@@ -76,9 +76,33 @@ def display_accessrecords(request):
 
     LAO=AccessRecords.objects.filter(Q(id=2) & Q(date__year='2001'))
     LAO=AccessRecords.objects.filter(Q(id=2) | Q(date__year='1999'))
-    #LAO=AccessRecords.objects.all()
+    LAO=AccessRecords.objects.all()
     
     
     d={'LAO':LAO}
     return render(request,'display_accessrecords.html',d)
 
+
+
+
+def update_webpage(request):
+    #Webpage.objects.update()
+    #Webpage.objects.filter(topic_name='cricket11').update(name='virat',url='https://virat.com')
+    #Webpage.objects.filter(name='SKY').update(topic_name='chess')
+    T=Topic.objects.get_or_create(topic_name='Cricket')[0]
+    T.save()
+    Webpage.objects.update_or_create(name='ABD',defaults={'topic_name':T,'url':'https://ABD.in'})
+
+    LWO=Webpage.objects.all()
+    d={'LWO':LWO}
+    return render(request,'display_webpages.html',d)
+
+
+def delete_accessrecords(request):
+
+    AccessRecords.objects.filter(date='1999-11-22').delete()
+
+    AccessRecords.objects.all().delete()
+    LAO=AccessRecords.objects.all()
+    d={'LAO':LAO}
+    return render(request,'display_accessrecords.html',d)
